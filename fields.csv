@@ -1,0 +1,15 @@
+Form Name,Field Name,Field Type
+Student Registration,Name,Text Input
+Student Registration,Email,Email Input
+Student Registration,Date of Birth,Date Picker
+Student Registration,Gender,Radio Button
+Student Registration,Class,Dropdown
+Student Registration,Address,Text Area
+Student Registration,Phone Number,Number Input
+Student Registration,Profile Picture,File Upload
+Job Application,Name,Text Input
+Job Application,Resume,File Upload
+Job Application,Experience,Text Area
+Contact Form,Name,Text Input
+Contact Form,Email,Email Input
+Contact Form,Message,Text Area

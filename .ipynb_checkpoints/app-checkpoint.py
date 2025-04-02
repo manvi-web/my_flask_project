@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 import os
 app = Flask(__name__)
 field_map = {
-    "student registration": [
+    "Student Registration": [
         ["Name", "Text Input"],
         ["Email", "Email Input"],
         ["Date of Birth", "Date Picker"],
@@ -12,12 +12,12 @@ field_map = {
         ["Phone Number", "Number Input"],
         ["Profile Picture", "File Upload"]
     ],
-    "job application": [
+    "Job Application": [
         ["Name", "Text Input"],
         ["Resume", "File Upload"],
         ["Experience", "Text Area"]
     ],
-    "contact form": [
+    "Contact Form": [
         ["Name", "Text Input"],
         ["Email", "Email Input"],
         ["Message", "Text Area"]

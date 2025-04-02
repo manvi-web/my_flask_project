@@ -1,21 +1,18 @@
 
+
+
 from flask import Flask, render_template, request
 import os
-
 app = Flask(__name__)
+
+
 def predict_fields(formname):
-    
-     field_map = {
+    field_map = {
         "student_form": ["Name", "Age", "Grade", "School"],
         "job_application": ["Name", "Email", "Resume", "Experience"],
         "registration": ["Username", "Password", "Email", "Phone Number"]
     }
-    
     return field_map.get(formname.lower(), ["No predictions available"])
-
-
-
-port = int(os.getenv("PORT", 5000))
 
 @app.route('/')
 def home():
@@ -23,13 +20,13 @@ def home():
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    formname = request.form.get('formname') 
-    
-    predicted_fields = predict_fields(formname)  
+    formname = request.form.get('formname')  # Get input from user
+    predicted_fields = predict_fields(formname)  # Call the function
     return render_template('index.html', fields=predicted_fields)
+
 if __name__ == "__main__":
-   
-    app.run(debug=True, host="0.0.0.0", port=port)
+    app.run(debug=True, port=5000)
+
 from collections.abc import Callable, Sequence
 from typing import Any, TYPE_CHECKING
 

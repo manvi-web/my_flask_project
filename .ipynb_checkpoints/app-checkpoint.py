@@ -3,6 +3,16 @@ from flask import Flask, render_template, request
 import os
 
 app = Flask(__name__)
+def predict_fields(formname):
+    
+     field_map = {
+        "student_form": ["Name", "Age", "Grade", "School"],
+        "job_application": ["Name", "Email", "Resume", "Experience"],
+        "registration": ["Username", "Password", "Email", "Phone Number"]
+    }
+    
+    return field_map.get(formname.lower(), ["No predictions available"])
+
 
 
 port = int(os.getenv("PORT", 5000))

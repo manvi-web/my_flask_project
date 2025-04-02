@@ -25,7 +25,7 @@ def predict():
     return render_template('index.html', fields=predicted_fields)
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=10000)
 
 from collections.abc import Callable, Sequence
 from typing import Any, TYPE_CHECKING

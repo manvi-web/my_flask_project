@@ -1,34 +1,39 @@
-
-
-
 from flask import Flask, render_template, request
 import os
 app = Flask(__name__)
-
-
-def predict_fields(formname):
-    field_map = {
-        "student_form": ["Name", "Age", "Grade", "School"],
-        "job_application": ["Name", "Email", "Resume", "Experience"],
-        "registration": ["Username", "Password", "Email", "Phone Number"]
-    }
-    return field_map.get(formname.lower(), ["No predictions available"])
-
+field_map = {
+    "student registration": [
+        ["Name", "Text Input"],
+        ["Email", "Email Input"],
+        ["Date of Birth", "Date Picker"],
+        ["Gender", "Radio Button"],
+        ["Class", "Dropdown"],
+        ["Address", "Text Area"],
+        ["Phone Number", "Number Input"],
+        ["Profile Picture", "File Upload"]
+    ],
+    "job application": [
+        ["Name", "Text Input"],
+        ["Resume", "File Upload"],
+        ["Experience", "Text Area"]
+    ],
+    "contact form": [
+        ["Name", "Text Input"],
+        ["Email", "Email Input"],
+        ["Message", "Text Area"]
+    ]
+}
 @app.route('/')
 def home():
     return render_template('my_subfolder/index.html')
-
 @app.route('/predict', methods=['POST'])
 def predict():
-    formname = request.form.get('formname')  # Get input from user
-    predicted_fields = predict_fields(formname)  # Call the function
-    return render_template('index.html', fields=predicted_fields)
-
+    formname = request.form.get('formname', '').lower()
+    predicted_fields = field_map.get(formname, [["No predictions available", ""]])
+    return render_template('my_subfolder/index.html', fields=predicted_fields, formname=formname)
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 10000))  # Default to 10000 if PORT not set
+    port = int(os.environ.get("PORT", 10000))  # Render uses environment variable PORT
     app.run(host="0.0.0.0", port=port)
-
-
 from collections.abc import Callable, Sequence
 from typing import Any, TYPE_CHECKING
 

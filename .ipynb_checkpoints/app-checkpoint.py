@@ -1,18 +1,14 @@
 from __future__ import annotations
+
+from flask import Flask, render_template
 import os
-from flask import Flask
-
 app = Flask(__name__)
-
-
 port = int(os.getenv("PORT", 10000))
-
 @app.route('/')
 def home():
-    return "welcome to my Flask Application"
-
+    return render_template('index.html')  
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=port) 
+    app.run(host="0.0.0.0", port=port, debug=True)  
 from collections.abc import Callable, Sequence
 from typing import Any, TYPE_CHECKING
 

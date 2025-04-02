@@ -1,20 +1,13 @@
-from flask import Flask, render_template, request
-import os
+from flask import Flask, render_template
+
 app = Flask(__name__)
-port = int(os.getenv("PORT", 5000))
+
 @app.route('/')
 def home():
-    return render_template('index.html')
-@app.route('/predict', methods=['POST'])
-def predict():
-    formname = request.form.get('formname') 
-   
-    predicted_fields = predict_fields(formname)  
-    return render_template('index.html', fields=predicted_fields)
+    return render_template('index.html')  # Ensure this is correctly returning the HTML file
 
 if __name__ == "__main__":
-    
-    app.run(debug=True, host="0.0.0.0", port=port)
+    app.run(host="0.0.0.0", port=10000, debug=True)  # Ensure port is correct
 from collections.abc import Callable, Sequence
 from typing import Any, TYPE_CHECKING
 

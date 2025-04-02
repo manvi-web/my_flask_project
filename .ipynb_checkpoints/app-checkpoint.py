@@ -4,10 +4,9 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('index.html')  # Ensure this is correctly returning the HTML file
-
+    return render_template('my_subfolder/index.html') 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=10000, debug=True)  # Ensure port is correct
+    app.run(host="0.0.0.0", port=10000, debug=True) 
 from collections.abc import Callable, Sequence
 from typing import Any, TYPE_CHECKING
 

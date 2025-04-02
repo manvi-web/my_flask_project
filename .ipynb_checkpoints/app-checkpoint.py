@@ -9,7 +9,7 @@ port = int(os.getenv("PORT", 5000))
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('my_subfolder/index.html')
 
 @app.route('/predict', methods=['POST'])
 def predict():

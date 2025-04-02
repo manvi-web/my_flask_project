@@ -25,7 +25,9 @@ def predict():
     return render_template('index.html', fields=predicted_fields)
 
 if __name__ == "__main__":
-    app.run(debug=True, port=10000)
+    port = int(os.environ.get("PORT", 10000))  # Default to 10000 if PORT not set
+    app.run(host="0.0.0.0", port=port)
+
 
 from collections.abc import Callable, Sequence
 from typing import Any, TYPE_CHECKING
